@@ -2,6 +2,7 @@ import pygments.token
 import pygments.lexers
 import os
 import hashlib
+
 from cleanUP import *
 
 #sha-1 encoding is used to generate hash values
@@ -116,22 +117,24 @@ def plagiarismCheck(file1, file2):
                 newCode = newCode + code[mergedPoints[i][1] : mergedPoints[i+1][0]]
             else:
                 newCode = newCode + code[mergedPoints[i][1] :]
-    print("Approx ratio of plagiarized content in file 1: ", (plagCount/len(code)))
-    print(newCode)
-
-
-fn1 = input("Enter the path/name of program 1: ")
-fn2 = input("Enter the path/name of program 2: ")
-plagiarismCheck(fn1, fn2)
+    print("Approx ratio of plagiarized content in ", file1, " : ", (plagCount/len(code)))
 
 
 
+# fn1 = input("Enter the path/name of program 1: ")
+# fn2 = input("Enter the path/name of program 2: ")
+# plagiarismCheck(fn1, fn2)
 
-#folder = input("Enter the path of folder:")
 
-#for each file in the folder:
-#    fn1 = i:
-#       for each other file different from i:
-#           fn2 = j
-#           perform plagiarismCheck
-#           print result
+
+
+folder = input("Enter the path of folder (include a '/' at the end): ")
+
+for i in os.listdir(folder):
+    file1 = folder + i
+    for j in os.listdir(folder):
+        file2 = folder + j
+        if file1 != file2:
+            plagiarismCheck(file1, file2)
+
+
