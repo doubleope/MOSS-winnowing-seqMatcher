@@ -2,6 +2,15 @@
 This project gives the measure of plagiarized content between software codes and also highlights the similar blocks
 Python implementation of Winnowing approach as well as Sequence Matcher (difflib) approach
 
+
+```
+-i: input folder path to compare among files
+-t: similarity threshold which similar files will be printed for manual check
+
+python run.py -i='path/to/folder' -t=floatValue
+```
+
+
 ## Getting Started
  - Python 3.5+ required to execute seqMatcher.py and Python 3+ for winnowing.py
 
