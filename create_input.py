@@ -45,7 +45,10 @@ if __name__ == '__main__':
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
 
-    folder = os.path.join(dir_path, args.input)
+    if args.input.startswith('/'):
+        folder = args.input
+    else:
+        folder = os.path.join(dir_path, args.input)
 
     output_folder = os.path.join(folder, 'output_src')
 
