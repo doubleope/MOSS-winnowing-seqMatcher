@@ -122,3 +122,15 @@ def plagiarismCheck(file1, file2):
 fn1 = input("Enter the path/name of program 1: ")
 fn2 = input("Enter the path/name of program 2: ")
 plagiarismCheck(fn1, fn2)
+
+
+
+
+#folder = input("Enter the path of folder:")
+
+#for each file in the folder:
+#    fn1 = i:
+#       for each other file different from i:
+#           fn2 = j
+#           perform plagiarismCheck
+#           print result
