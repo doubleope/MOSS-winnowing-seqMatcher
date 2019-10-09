@@ -39,6 +39,11 @@ def handle_read_zip_file(filepath, output_folder):
     return False
 
 
+def is_c_programming(full_file_path):
+
+    return fnmatch(full_file_path, "*.c") or fnmatch(full_file_path, "*.cpp")
+
+
 if __name__ == '__main__':
     parser = get_parser()
     args = parser.parse_args()
@@ -59,7 +64,7 @@ if __name__ == '__main__':
         full_path_file1 = os.path.join(folder, file1)
 
         is_file = os.path.isfile(full_path_file1)
-        if is_file and fnmatch(full_path_file1, ".c"):
+        if is_file and is_c_programming(full_path_file1):
             copyfile(file1, output_folder)
         elif is_file and file1.endswith(".zip"):
             if not handle_read_zip_file(full_path_file1, output_folder=output_folder):
