@@ -12,7 +12,7 @@ def get_parser():
                         "--input",
                         dest="input",
                         help="Folder containing files to extract and copy to output",
-                        default='tests')
+                        default='/home/long/Desktop/TA/fall-2019/My_labs/lab1/gradebook_67.202027_Lab1-linked20list_2019-09-16-19-10-33')
 
     parser.add_argument("-e",
                         "--extension",
