@@ -57,6 +57,7 @@ if __name__ == '__main__':
 
     output_folder = os.path.join(folder, 'output_src')
 
+    os.makedirs(output_folder, exist_ok=True)
     if not os.path.isdir(folder):
         raise Exception("Input is not a folder. Please check", folder)
 
@@ -70,6 +71,8 @@ if __name__ == '__main__':
         elif is_file and file1.endswith(".zip"):
             if not handle_read_zip_file(full_path_file1, output_folder=output_folder):
                 print('Cannot process the file; double check:', file1)
+            else:
+                os.remove(full_path_file1)
         else:
             print('No processing folder or other file format; double check:', file1)
 
