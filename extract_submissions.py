@@ -66,6 +66,7 @@ if __name__ == '__main__':
         is_file = os.path.isfile(full_path_file1)
         if is_file and is_c_programming(full_path_file1):
             copyfile(file1, output_folder)
+            os.remove(file1)
         elif is_file and file1.endswith(".zip"):
             if not handle_read_zip_file(full_path_file1, output_folder=output_folder):
                 print('Cannot process the file; double check:', file1)
