@@ -8,12 +8,12 @@ from shutil import rmtree
 
 def get_parser():
     """Get parser for command line arguments."""
-    parser = argparse.ArgumentParser(description="Plagiarism Check")
+    parser = argparse.ArgumentParser(description="Intelligent Copy")
     parser.add_argument("-i",
                         "--input",
                         dest="input",
                         help="Folder containing files to extract and copy to output",
-                        default='/home/long/Desktop/TA/fall-2019/My_labs/lab3/gradebook_67.202027_lab3-queue_2019-09-30-05-52-22/output_src')
+                        default='tests/output_src')
 
     parser.add_argument("-e",
                         "--extension",

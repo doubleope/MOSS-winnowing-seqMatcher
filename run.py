@@ -38,11 +38,15 @@ if __name__ == '__main__':
         for file2 in os.listdir(folder):
             full_path_file2 = os.path.join(folder, file2)
             if full_path_file1 != full_path_file2:
-                similarity, _ = plagiarismCheck(full_path_file1, full_path_file2)
+                try:
+                    similarity, _ = plagiarismCheck(full_path_file1, full_path_file2)
 
-                hp.heappush(my_heap, (similarity, {"source": file1, "target": file2}))
+                    hp.heappush(my_heap, (similarity, {"source": file1, "target": file2}))
+                except:
+                    print('bad comparison: source', file1, '; target:', file2)
 
     ## print output
+    print('***** Rendering Output *****')
     threshold = float(args.threshold)
     while len(my_heap) > 0:
 
