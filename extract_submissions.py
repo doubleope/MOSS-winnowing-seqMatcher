@@ -12,7 +12,7 @@ def get_parser():
                         "--input",
                         dest="input",
                         help="Folder containing files to extract and copy to output",
-                        default='tests')
+                        default='/home/long/Desktop/TA/fall-2019/My_labs/lab3/gradebook_67.202027_lab3-queue_2019-09-30-05-52-22')
 
     parser.add_argument("-e",
                         "--extension",
@@ -34,7 +34,7 @@ def handle_read_zip_file(filepath, output_folder):
 
         return True
     except:
-        print("something went wrong")
+        print(filepath, "something went wrong in this zip file format")
 
     return False
 
@@ -70,7 +70,7 @@ if __name__ == '__main__':
             os.remove(file1)
         elif is_file and file1.endswith(".zip"):
             if not handle_read_zip_file(full_path_file1, output_folder=output_folder):
-                print('Cannot process the file; double check:', file1)
+                print(file1, ':Cannot process the file; double check')
             else:
                 os.remove(full_path_file1)
         else:
