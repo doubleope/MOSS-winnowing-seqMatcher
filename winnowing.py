@@ -59,6 +59,9 @@ def hashList(arr):
 
     return HL
 
+## return: similarity_score: the similarity between two files
+## new_code: is the formatted code showing matching scripts.
+
 def plagiarismCheck(file1, file2):
     f1 = open(file1, "r")
     token1 = tokenize(file1)  #from cleanUP.py
@@ -115,10 +118,10 @@ def plagiarismCheck(file1, file2):
                 newCode = newCode + code[mergedPoints[i][1] : mergedPoints[i+1][0]]
             else:
                 newCode = newCode + code[mergedPoints[i][1] :]
-    print("Approx ratio of plagiarized content in file 1: ", (plagCount/len(code)))
-    print(newCode)
+    # print("Approx ratio of plagiarized content in file 1: ", (plagCount/len(code)))
+    similarity_score = (float(plagCount*1.0)/len(code))
+    return similarity_score, newCode
 
-
-fn1 = input("Enter the path/name of program 1: ")
-fn2 = input("Enter the path/name of program 2: ")
-plagiarismCheck(fn1, fn2)
+# fn1 = input("Enter the path/name of program 1: ")
+# fn2 = input("Enter the path/name of program 2: ")
+# plagiarismCheck(fn1, fn2)
